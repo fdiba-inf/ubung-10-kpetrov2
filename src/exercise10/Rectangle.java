@@ -1,6 +1,6 @@
 package exercise10;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Figure implements ClickListener {
     public Rectangle() {
         super(new Point(0, 0), 1, 1);
     }
@@ -39,7 +39,8 @@ public class Rectangle extends Figure {
 
     @Override
     public boolean containsClick(Point click) {
-        // Check if click point is inside the rectangle
-        return false;
+        boolean condition1 = click.x >= startPoint.x && click.x <= (startPoint.x + side2);
+        boolean condition2 = click.y >= startPoint.y && click.y <= (startPoint.y + side1);
+        return condition1 && condition2;
     }
 }
